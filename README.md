@@ -1,6 +1,6 @@
 # Efren S. Cabudbud Jr. - Portfolio
 
-Modern, animated portfolio with ChatGPT-style search and Obsidian-like documentation.
+Modern, animated portfolio with search and Obsidian-like documentation.
 
 ## Quick Start
 
@@ -16,7 +16,7 @@ src/
 ├── components/
 │   ├── animations/      # Framer Motion animation wrappers
 │   ├── layout/          # Navbar, Footer
-│   ├── search/          # ChatGPT-style command palette
+│   ├── search/          # command palette
 │   ├── sections/        # Page sections (Hero, About, Skills, etc)
 │   └── ui/              # Reusable UI components (Button, Card, Badge, etc)
 ├── context/             # React Context (Theme)
@@ -32,7 +32,7 @@ src/
 
 - **Modern Design** - Clean, minimal UI with CSS custom properties
 - **Framer Motion Animations** - Scroll reveals, stagger effects, floating elements
-- **Command Palette** - `Ctrl+K` to search skills, projects, sections (ChatGPT style)
+- **Command Palette** - `Ctrl+K` to search skills, projects, sections 
 - **Dark/Light Theme** - Auto-detects system preference, toggleable
 - **Obsidian-style Docs** - Wiki-style `[[links]]` between documentation pages
 - **Responsive** - Mobile-first, works on all devices
