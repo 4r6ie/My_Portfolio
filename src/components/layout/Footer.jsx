@@ -20,10 +20,10 @@ export default function Footer() {
             <Icon name="github" size={18} />
           </a>
           <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            in
+            <Icon name="linkedin" size={18} />
           </a>
           <a href={profile.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            f
+            <Icon name="facebook" size={18} />
           </a>
           <a href={`mailto:${profile.email}`} aria-label="Email">
             <Icon name="mail" size={18} />

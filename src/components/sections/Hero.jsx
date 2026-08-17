@@ -64,10 +64,10 @@ export default function Hero() {
                 <Icon name="github" size={18} />
               </a>
               <a href={social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hero-social-link">
-                in
+                <Icon name="linkedin" size={18} />
               </a>
               <a href={social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hero-social-link">
-                f
+                <Icon name="facebook" size={18} />
               </a>
             </div>
           </div>

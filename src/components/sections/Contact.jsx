@@ -72,10 +72,10 @@ export default function Contact() {
                     <Icon name="github" size={18} />
                   </a>
                   <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer" className="contact-social-link">
-                    in
+                    <Icon name="linkedin" size={18} />
                   </a>
                   <a href={profile.social.facebook} target="_blank" rel="noopener noreferrer" className="contact-social-link">
-                    f
+                    <Icon name="facebook" size={18} />
                   </a>
                 </div>
               </div>
