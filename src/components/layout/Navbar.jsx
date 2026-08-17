@@ -55,7 +55,7 @@ export default function Navbar({ onSearchOpen }) {
         <div className="navbar-inner">
           <a href="#home" className="navbar-brand" onClick={() => handleNavClick('home')}>
             <img src={profile.avatar} alt={profile.name} className="navbar-avatar" />
-            <span className="navbar-name">{profile.name.split(' ').slice(-1)[0]}</span>
+            <span className="navbar-name">{profile.name.split(' ')[0]}</span>
           </a>
 
           {!isMobile && (
