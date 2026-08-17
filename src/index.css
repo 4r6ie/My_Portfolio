@@ -1002,7 +1002,7 @@ a.contact-value:hover { color: var(--accent); }
   .hero-subtitle { font-size: 16px; }
   .hero-buttons { flex-direction: column; width: 100%; }
   .hero-buttons .btn { width: 100%; }
-  .hero-social { flex-direction: column; gap: 12px; }
+  .hero-social { flex-direction: column; gap: 12px; margin-bottom: 40px; }
   .about-stats { grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .about-stat { padding: 16px 8px; }
   .about-stat-value { font-size: 24px; }
