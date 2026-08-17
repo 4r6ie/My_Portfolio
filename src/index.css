@@ -993,22 +993,56 @@ a.contact-value:hover { color: var(--accent); }
   .about-info { grid-template-columns: 1fr 1fr; }
   .experience-layout { grid-template-columns: 1fr; }
   .contact-layout { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
 }
 
 @media (max-width: 768px) {
   .hero { min-height: auto; padding-top: calc(var(--nav-height) + 60px); padding-bottom: 60px; }
-  .hero-title { font-size: clamp(32px, 10vw, 48px); }
+  .hero-title { font-size: clamp(28px, 8vw, 48px); }
+  .hero-subtitle { font-size: 16px; }
+  .hero-buttons { flex-direction: column; width: 100%; }
+  .hero-buttons .btn { width: 100%; }
+  .hero-social { flex-direction: column; gap: 12px; }
   .about-stats { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .about-stat { padding: 16px 8px; }
   .about-stat-value { font-size: 24px; }
+  .about-stat-label { font-size: 11px; }
   .projects-grid { grid-template-columns: 1fr; }
   .contact-form-row { grid-template-columns: 1fr; }
-  .resume-card { flex-direction: column; text-align: center; padding: 32px; }
+  .resume-card { flex-direction: column; text-align: center; padding: 32px 20px; gap: 24px; }
   .navbar-links { display: none; }
+  .skills-tabs { gap: 6px; }
+  .skills-tab { padding: 8px 14px; font-size: 12px; }
+  .skills-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
+  .skill-card { padding: 12px 14px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .certificates-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .capabilities-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .strengths-grid { grid-template-columns: 1fr; }
+  .section { padding: clamp(48px, 8vw, 80px) 0; }
+  .section-head { margin-bottom: clamp(32px, 5vw, 48px); }
+  .container { padding: 0 clamp(16px, 4vw, 24px); }
 }
 
 @media (max-width: 480px) {
   .about-info { grid-template-columns: 1fr; }
   .about-stats { grid-template-columns: 1fr; }
+  .hero-title { font-size: clamp(24px, 7vw, 36px); }
+  .hero-badge { font-size: 11px; padding: 6px 12px; }
+  .hero-eyebrow { font-size: 10px; }
+  .hero-text { font-size: 13px; }
+  .section-title { font-size: clamp(24px, 6vw, 36px); }
+  .section-desc { font-size: 14px; }
+  .experience-item { padding: 20px; }
+  .contact-card { padding: 20px; }
+  .contact-form { padding: 20px; }
+  .about-detail { padding: 16px; }
+  .navbar-avatar { width: 28px; height: 28px; }
+  .navbar-brand { gap: 8px; font-size: 13px; }
+  .mobile-menu { padding: 16px; }
+  .mobile-menu-link { padding: 14px 16px; font-size: 15px; }
+  .footer-links a { width: 32px; height: 32px; font-size: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
