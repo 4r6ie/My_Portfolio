@@ -54,13 +54,6 @@ src/
 - Geist + Space Grotesk fonts
 - Custom CSS design system
 
-## Docker
-
-```bash
-docker-compose up --build
-# Opens at http://localhost:8080
-```
-
 ## Documentation
 
 See `public/docs/` for markdown-based documentation with wiki-style links.
