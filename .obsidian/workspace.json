@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "dist/docs/deployment.md",
+                "file": "dist/docs/architecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "deployment"
+              "title": "architecture"
             }
           }
         ]
@@ -190,19 +190,19 @@
   },
   "active": "14ac5a1c95780a05",
   "lastOpenFiles": [
+    "dist/docs/deployment.md",
+    "dist/docs/architecture.md",
+    "dist/docs/api-reference.md",
     "dist/assets/index-CDuT2XWK.js",
     "dist/assets/index-DqFS7g-j.css",
     "dist/assets/index-CMpqgku9.js",
     "dist/assets",
-    "dist/docs/api-reference.md",
     "src/components/animations/index.js",
     "src/lib/utils.js",
     "src/hooks/index.js",
     "src/data/index.js",
     "src/data/docs.js",
     "src/data/portfolio.js",
-    "src/context/ThemeContext.jsx",
-    "dist/images/profile.png",
-    "dist/docs/architecture.md"
+    "dist/images/profile.png"
   ]
 }
