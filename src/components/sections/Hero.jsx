@@ -1,12 +1,13 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Button, Icon, Badge } from '@/components/ui';
-import { SlideUp, Floating } from '@/components/animations';
+import { SlideUp } from '@/components/animations';
 import { profile } from '@/data';
 
 export default function Hero() {
   const { name, title, summary, avatar, social, resume } = profile;
   const firstName = name.split(' ')[0];
   const lastName = name.split(' ').slice(1).join(' ');
+  const reduceMotion = useReducedMotion();
 
   return (
     <section id="home" className="hero">
@@ -75,40 +76,23 @@ export default function Hero() {
       </div>
 
       <div className="hero-visual">
-        <Floating y={[-8, 8]} duration={6}>
-          <div className="hero-portrait">
-            <div className="hero-portrait-glow" />
-            <img className="hero-avatar" src={avatar} alt={name} />
-            <div className="hero-code-window">
-              <div className="hero-code-top">
-                <span /><span /><span />
-                <small>portfolio.js</small>
-              </div>
-              <code>
-                <b>const</b> developer = {'{'}<br />
-                &nbsp;&nbsp;name: <i>&apos;{firstName}&apos;</i>,<br />
-                &nbsp;&nbsp;focus: <i>&apos;solutions&apos;</i>,<br />
-                &nbsp;&nbsp;ready: <em>true</em><br />
-                {'}'}
-              </code>
-            </div>
-          </div>
-        </Floating>
-
-        <div className="hero-chips">
-          <Floating y={[-5, 5]} duration={4}>
-            <div className="hero-chip hero-chip--1">
-              <Icon name="sparkles" size={14} />
-              Detail-oriented
-            </div>
-          </Floating>
-          <Floating y={[5, -5]} duration={5}>
-            <div className="hero-chip hero-chip--2">
-              <Icon name="zap" size={14} />
-              Tech-savvy
-            </div>
-          </Floating>
-        </div>
+        <motion.div
+          className="hero-portrait"
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: reduceMotion ? 0 : 0.9, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="hero-portrait-glow" />
+          <img
+            className="hero-avatar"
+            src={avatar}
+            alt={name}
+            width={320}
+            height={320}
+            loading="eager"
+            fetchPriority="high"
+          />
+        </motion.div>
       </div>
 
       <a href="#about" className="hero-scroll" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}>
