@@ -11,6 +11,8 @@ const projectVisuals = {
   aid: { gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)', icon: 'heart' },
   hris: { gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)', icon: 'users' },
   llm: { gradient: 'linear-gradient(135deg, #fccb90 0%, #d57eeb 100%)', icon: 'sparkles' },
+  ojt: { gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)', icon: 'calendar' },
+  bayad: { gradient: 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)', icon: 'database' },
 };
 
 export default function Projects() {
