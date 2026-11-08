@@ -12,7 +12,7 @@ export default function Resume() {
               <h2 className="resume-title">Download My Resume</h2>
               <p className="resume-desc">
                 Get a complete overview of my skills, experience, and qualifications.
-                Available in text format for easy viewing.
+                Available in Word (.docx) format for easy viewing.
               </p>
             </div>
             <Button

@@ -18,7 +18,6 @@ const searchableContent = [
   { type: 'nav', title: 'Services', description: 'Go to services section', icon: 'briefcase', action: 'services' },
   { type: 'nav', title: 'Projects', description: 'Go to projects section', icon: 'folder', action: 'projects' },
   { type: 'nav', title: 'Experience', description: 'Go to experience section', icon: 'calendar', action: 'experience' },
-  { type: 'nav', title: 'Documentation', description: 'Go to documentation', icon: 'book', action: 'documentation' },
   { type: 'nav', title: 'Contact', description: 'Go to contact section', icon: 'mail', action: 'contact' },
   { type: 'nav', title: 'Resume', description: 'Download resume', icon: 'download', action: 'resume' },
   { type: 'theme', title: 'Toggle Theme', description: 'Switch between dark and light mode', icon: 'sun', action: 'theme' },
@@ -29,7 +28,6 @@ const quickActions = [
   { title: 'Contact Me', icon: 'mail', action: 'contact' },
   { title: 'Download Resume', icon: 'download', action: 'resume' },
   { title: 'Toggle Theme', icon: 'sun', action: 'theme' },
-  { title: 'Documentation', icon: 'book', action: 'documentation' },
 ];
 
 export default function CommandPalette({ isOpen, onClose }) {

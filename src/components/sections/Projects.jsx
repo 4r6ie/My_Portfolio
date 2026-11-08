@@ -16,10 +16,28 @@ const projectVisuals = {
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [expandedId, setExpandedId] = useState(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxProject, setLightboxProject] = useState(null);
+  const [imageErrors, setImageErrors] = useState({});
 
   const filtered = activeFilter === 'All'
     ? projects
     : projects.filter(p => p.tags.some(t => t.toLowerCase() === activeFilter.toLowerCase()));
+
+  const handleImageError = (e, projectId) => {
+    e.target.style.display = 'none';
+    setImageErrors(prev => ({ ...prev, [projectId]: true }));
+  };
+
+  const openLightbox = (project) => {
+    setLightboxProject(project);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setLightboxProject(null);
+  };
 
   return (
     <section id="projects" className="section projects">
@@ -49,8 +67,17 @@ export default function Projects() {
             return (
               <StaggerItem key={project.id}>
                 <div className={`project-card ${isExpanded ? 'project-card--expanded' : ''}`}>
-                  <div className="project-visual" style={{ background: visual.gradient }}>
-                    <Icon name={visual.icon} size={32} className="project-visual-icon" />
+                  <div className="project-visual" onClick={() => openLightbox(project)} style={{ cursor: 'pointer' }}>
+                    {!imageErrors[project.id] && (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="project-image"
+                        onError={(e) => handleImageError(e, project.id)}
+                        loading="lazy"
+                      />
+                    )}
+                    {imageErrors[project.id] && <Icon name={visual.icon} size={32} className="project-visual-icon" />}
                     <div className="project-visual-overlay" />
                   </div>
 
@@ -97,6 +124,24 @@ export default function Projects() {
             );
           })}
         </StaggerContainer>
+
+        {lightboxOpen && lightboxProject && (
+          <div className="lightbox-overlay" onClick={closeLightbox}>
+            <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+              <button className="lightbox-close" onClick={closeLightbox}>&times;</button>
+              <img src={lightboxProject.image} alt={lightboxProject.title} className="lightbox-image" />
+              <div className="lightbox-info">
+                <h3 className="lightbox-title">{lightboxProject.title}</h3>
+                <p className="lightbox-desc">{lightboxProject.desc}</p>
+                <div className="lightbox-tech">
+                  {lightboxProject.tech.map(t => (
+                    <span key={t} className="lightbox-tech-item">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
