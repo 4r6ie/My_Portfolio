@@ -2,7 +2,7 @@ export const profile = {
   name: 'Efren S. Cabudbud Jr.',
   title: 'BSIT Graduate | Virtual Assistant | Web & Mobile Developer',
   location: 'Bohol, Philippines',
-  email: '4r6iee2002@gmail.com',
+  email: '4r6iee@gmail.com',
   phone: '09609229610',
   summary: 'BSIT graduate focused on building practical technology solutions, supporting digital workflows, and helping businesses stay organized and productive.',
   avatar: '/images/profile.png',
