@@ -1,59 +1,75 @@
-# Efren S. Cabudbud Jr. - Portfolio
+# Efren S. Cabudbud Jr. — Portfolio
 
-Modern, animated portfolio with search and Obsidian-like documentation.
+Personal portfolio of **Efren S. Cabudbud Jr.**, a web and mobile developer and virtual assistant based in Bohol, Philippines. Built with React, Vite, and Framer Motion.
 
-## Quick Start
+**Live site:** https://efren-cabudbud-portfolio.vercel.app
+**Mirror:** https://4r6ie.github.io/My_Portfolio/
 
-```bash
-npm install
-npm run dev
-```
+## Features
+
+- Responsive single-page layout with dark/light theme
+- Framer Motion scroll reveals and reduced-motion support
+- Command palette (`Ctrl+K` / `Cmd+K`) for searching skills, services, and projects
+- Project filtering, expandable details, and a project lightbox
+- Contact form with real email delivery via Web3Forms
+- Resume available as a PDF download
+- Accessible assets paths that work on both Vercel and GitHub Pages
+
+## Tech Stack
+
+- React 19
+- Vite 8
+- Framer Motion
+- Custom CSS design system (Geist + Space Grotesk)
 
 ## Project Structure
 
 ```
 src/
 ├── components/
-│   ├── animations/      # Framer Motion animation wrappers
+│   ├── animations/      # Framer Motion wrappers
 │   ├── layout/          # Navbar, Footer
-│   ├── search/          # command palette
-│   ├── sections/        # Page sections (Hero, About, Skills, etc)
-│   └── ui/              # Reusable UI components (Button, Card, Badge, etc)
-├── context/             # React Context (Theme)
-├── data/                # Static data (profile, skills, projects)
-├── hooks/               # Custom hooks (scroll, media query, etc)
-├── lib/                 # Utility functions (cn, debounce, etc)
-├── styles/              # Global CSS
-├── App.jsx              # Main app
+│   ├── search/          # Command palette
+│   ├── sections/        # Hero, About, Skills, Projects, Contact, etc.
+│   └── ui/              # Button, Card, Badge, Input, Icon, etc.
+├── context/             # Theme context
+├── data/                # Profile, skills, projects, services
+├── hooks/               # Scroll and media-query hooks
+├── lib/                 # Shared utilities
+├── App.jsx              # Page composition
 └── main.jsx             # Entry point
 ```
 
-## Features
+## Getting Started
 
-- **Modern Design** - Clean, minimal UI with CSS custom properties
-- **Framer Motion Animations** - Scroll reveals, stagger effects, floating elements
-- **Command Palette** - `Ctrl+K` to search skills, projects, sections 
-- **Dark/Light Theme** - Auto-detects system preference, toggleable
-- **Obsidian-style Docs** - Wiki-style `[[links]]` between documentation pages
-- **Responsive** - Mobile-first, works on all devices
-- **Reduced Motion** - Respects `prefers-reduced-motion`
+```bash
+npm install
+npm run dev
+```
+
+Production build:
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Keyboard Shortcuts
 
 | Key | Action |
 |-----|--------|
 | `Ctrl+K` / `Cmd+K` | Open command palette |
-| `↑↓` | Navigate results |
+| `↑` / `↓` | Navigate results |
 | `Enter` | Select |
 | `Esc` | Close |
 
-## Tech Stack
+## Deployment
 
-- React 18 + Vite
-- Framer Motion (animations)
-- Geist + Space Grotesk fonts
-- Custom CSS design system
+- **Vercel:** builds with `npm run build` and serves `dist/`.
+- **GitHub Pages:** `.github/workflows/deploy.yml` builds with `BASE_PATH=/My_Portfolio/` and deploys the artifact.
 
-## Documentation
+## Contact
 
-See `public/docs/` for markdown-based documentation with wiki-style links.
+- Email: 4r6iee@gmail.com
+- GitHub: https://github.com/4r6ie
+- LinkedIn: https://linkedin.com/in/efren-cabudbud

@@ -1,12 +1,13 @@
 import { Reveal } from '@/components/animations';
 import { SectionHead, Card, Icon } from '@/components/ui';
-import { profile } from '@/data';
+import { profile, projects } from '@/data';
 
 export default function About() {
+  // Derived from the project data so the numbers never drift out of date.
+  const technologyCount = new Set(projects.flatMap(project => project.tech)).size;
   const stats = [
-    { label: 'Projects Completed', value: '7+' },
-    { label: 'Technologies', value: '15+' },
-    { label: 'Certificates', value: '4+' },
+    { label: 'Projects Built', value: projects.length },
+    { label: 'Technologies Used', value: technologyCount },
   ];
 
   return (

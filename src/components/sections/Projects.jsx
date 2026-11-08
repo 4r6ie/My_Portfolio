@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Reveal, StaggerContainer, StaggerItem } from '@/components/animations';
-import { SectionHead, Badge, Tag, Icon } from '@/components/ui';
-import { projects, filters } from '@/data';
+import { SectionHead, Badge, Tag, Button, Icon } from '@/components/ui';
+import { projects, filters, profile } from '@/data';
 
 const projectVisuals = {
   salon: { gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', icon: 'briefcase' },
@@ -39,6 +39,23 @@ export default function Projects() {
     setLightboxProject(null);
   };
 
+  useEffect(() => {
+    if (!lightboxOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [lightboxOpen]);
+
   return (
     <section id="projects" className="section projects">
       <div className="container">
@@ -63,12 +80,26 @@ export default function Projects() {
           {filtered.map((project) => {
             const visual = projectVisuals[project.visual] || projectVisuals.salon;
             const isExpanded = expandedId === project.id;
+            const hasImage = Boolean(project.image) && !imageErrors[project.id];
 
             return (
               <StaggerItem key={project.id}>
                 <div className={`project-card ${isExpanded ? 'project-card--expanded' : ''}`}>
-                  <div className="project-visual" onClick={() => openLightbox(project)} style={{ cursor: 'pointer' }}>
-                    {!imageErrors[project.id] && (
+                  <div
+                    className="project-visual"
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`View ${project.title} details`}
+                    onClick={() => openLightbox(project)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openLightbox(project);
+                      }
+                    }}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    {hasImage ? (
                       <img
                         src={project.image}
                         alt={project.title}
@@ -76,8 +107,9 @@ export default function Projects() {
                         onError={(e) => handleImageError(e, project.id)}
                         loading="lazy"
                       />
+                    ) : (
+                      <Icon name={visual.icon} size={32} className="project-visual-icon" />
                     )}
-                    {imageErrors[project.id] && <Icon name={visual.icon} size={32} className="project-visual-icon" />}
                     <div className="project-visual-overlay" />
                   </div>
 
@@ -125,23 +157,58 @@ export default function Projects() {
           })}
         </StaggerContainer>
 
-        {lightboxOpen && lightboxProject && (
-          <div className="lightbox-overlay" onClick={closeLightbox}>
-            <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-              <button className="lightbox-close" onClick={closeLightbox}>&times;</button>
-              <img src={lightboxProject.image} alt={lightboxProject.title} className="lightbox-image" />
-              <div className="lightbox-info">
-                <h3 className="lightbox-title">{lightboxProject.title}</h3>
-                <p className="lightbox-desc">{lightboxProject.desc}</p>
-                <div className="lightbox-tech">
-                  {lightboxProject.tech.map(t => (
-                    <span key={t} className="lightbox-tech-item">{t}</span>
-                  ))}
+        {lightboxOpen && lightboxProject && (() => {
+          const visual = projectVisuals[lightboxProject.visual] || projectVisuals.salon;
+          const hasImage = Boolean(lightboxProject.image) && !imageErrors[lightboxProject.id];
+          const walkthroughHref = `mailto:${profile.email}?subject=${encodeURIComponent(`Project walkthrough: ${lightboxProject.title}`)}`;
+
+          return (
+            <div className="lightbox-overlay" onClick={closeLightbox}>
+              <div
+                className="lightbox-content"
+                role="dialog"
+                aria-modal="true"
+                aria-label={lightboxProject.title}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button className="lightbox-close" onClick={closeLightbox} aria-label="Close project details">&times;</button>
+                {hasImage ? (
+                  <img
+                    src={lightboxProject.image}
+                    alt={lightboxProject.title}
+                    className="lightbox-image"
+                    onError={(e) => handleImageError(e, lightboxProject.id)}
+                  />
+                ) : (
+                  <div className="lightbox-cover" style={{ background: visual.gradient }}>
+                    <Icon name={visual.icon} size={48} />
+                  </div>
+                )}
+                <div className="lightbox-info">
+                  <h3 className="lightbox-title">{lightboxProject.title}</h3>
+                  <p className="lightbox-desc">{lightboxProject.desc}</p>
+                  <div className="lightbox-tech">
+                    {lightboxProject.tech.map(t => (
+                      <span key={t} className="lightbox-tech-item">{t}</span>
+                    ))}
+                  </div>
+                  {!lightboxProject.links?.demo && !lightboxProject.links?.repo && (
+                    <div className="lightbox-actions">
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        href={walkthroughHref}
+                        icon={<Icon name="mail" size={14} />}
+                      >
+                        Request a walkthrough
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          );
+        })()}
       </div>
     </section>
   );

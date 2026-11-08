@@ -1,6 +1,6 @@
 import { Reveal, StaggerContainer, StaggerItem } from '@/components/animations';
 import { SectionHead, Icon } from '@/components/ui';
-import { toolsList, strengths, certificates, whyHireMe } from '@/data';
+import { toolsList, strengths, whyHireMe } from '@/data';
 
 export function Tools() {
   return (
@@ -44,34 +44,6 @@ export function Strengths() {
               <div className="strength-card">
                 <span className="strength-number">{String(i + 1).padStart(2, '0')}</span>
                 <span className="strength-name">{strength}</span>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
-    </section>
-  );
-}
-
-export function Certificates() {
-  return (
-    <section id="certificates" className="section certificates">
-      <div className="container">
-        <Reveal>
-          <SectionHead
-            eyebrow="CERTIFICATES"
-            title={<>Professional <em>certifications.</em></>}
-          />
-        </Reveal>
-
-        <StaggerContainer className="certificates-grid" stagger={0.1}>
-          {certificates.map((cert, i) => (
-            <StaggerItem key={cert}>
-              <div className="certificate-card">
-                <div className="certificate-icon">
-                  <Icon name="star" size={24} />
-                </div>
-                <span className="certificate-name">{cert}</span>
               </div>
             </StaggerItem>
           ))}

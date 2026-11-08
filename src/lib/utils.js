@@ -2,6 +2,17 @@ export function cn(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
+/**
+ * Resolve a public asset path against Vite's base URL so files under
+ * `public/` work both on Vercel (`/`) and GitHub Pages (`/My_Portfolio/`).
+ */
+export function assetUrl(path) {
+  if (!path) return path;
+  if (/^(?:[a-z]+:)?\/\//i.test(path) || path.startsWith('data:')) return path;
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base}${String(path).replace(/^\/+/, '')}`;
+}
+
 export function formatDate(date, options = {}) {
   const defaultOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(date).toLocaleDateString(undefined, { ...defaultOptions, ...options });
@@ -66,20 +77,4 @@ export function classNames(...args) {
     }
   }
   return classes.join(' ');
-}
-
-export function parseWikiLinks(text) {
-  return text.replace(/\[\[([^\]]+)\]\]/g, (match, link) => {
-    const [slug, label] = link.split('|').map(s => s.trim());
-    const targetSlug = slug.toLowerCase().replace(/\s+/g, '-');
-    return { slug: targetSlug, label: label || slug, original: match };
-  });
-}
-
-export function replaceWikiLinks(text, onLinkClick) {
-  return text.replace(/\[\[([^\]]+)\]\]/g, (match, link) => {
-    const [slug, label] = link.split('|').map(s => s.trim());
-    const targetSlug = slug.toLowerCase().replace(/\s+/g, '-');
-    return `<a href="#doc/${targetSlug}" class="wiki-link" data-slug="${targetSlug}">${label || slug}</a>`;
-  });
 }

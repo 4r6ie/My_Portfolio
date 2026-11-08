@@ -1,12 +1,14 @@
+import { assetUrl } from '@/lib/utils';
+
 export const profile = {
   name: 'Efren S. Cabudbud Jr.',
-  title: 'BSIT Graduate | Virtual Assistant | Web & Mobile Developer',
+  title: 'Web & Mobile Developer | Virtual Assistant',
   location: 'Bohol, Philippines',
   email: '4r6iee@gmail.com',
   phone: '09609229610',
   summary: 'BSIT graduate focused on building practical technology solutions, supporting digital workflows, and helping businesses stay organized and productive.',
-  avatar: '/images/profile.png',
-  resume: '/Efren-Cabudbud-Resume.docx',
+  avatar: assetUrl('/images/profile.png'),
+  resume: assetUrl('/Efren-Cabudbud-Resume.pdf'),
   social: {
     github: 'https://github.com/4r6ie',
     linkedin: 'https://linkedin.com/in/efren-cabudbud',
@@ -25,10 +27,10 @@ export const profile = {
 };
 
 export const skills = {
-  frontend: ['HTML', 'CSS', 'JavaScript', 'React', 'React Native', 'Expo'],
+  frontend: ['HTML', 'CSS', 'JavaScript', 'React'],
   backend: ['PHP', 'Laravel', 'REST / API Concepts', 'Server-side Development'],
   database: ['MySQL', 'SQLite', 'Database Design', 'CRUD Operations', 'Data Management'],
-  tools: ['VS Code', 'Git', 'GitHub', 'Docker', 'Phyton', 'Laragon', 'Android Studio'],
+  tools: ['VS Code', 'Git', 'GitHub', 'Docker', 'Python', 'Laragon', 'Android Studio'],
   mobile: ['React Native', 'Expo', 'Expo Router', 'SQLite', 'Android Development Environment', 'Mobile UI Development'],
   productivity: ['Microsoft Office', 'Google Workspace', 'Data Entry', 'Documentation', 'File Management', 'Administrative Support'],
   design: ['Canva', 'Basic UI/UX', 'Graphic Design', 'Social Media Graphics'],
@@ -47,12 +49,14 @@ export const services = [
   { title: 'Administrative Support', description: 'Assist with documents, spreadsheets, organization, research, and other digital administrative tasks.', icon: 'clipboard' },
 ];
 
+// Set `image` to an assetUrl('/images/projects/<file>.png') path once a
+// screenshot is available. Until then the card renders its gradient fallback.
 export const projects = [
-  { id: 1, title: 'Salon Management System', type: 'web', tags: ['Web', 'Database', 'Laravel', 'System Development'], tech: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'Laravel'], desc: 'A management system designed to help salons organize customers, appointments, services, payments, and business records.', visual: 'salon', image: '/images/projects/salon.png', features: ['CRUD Operations', 'Database Management', 'Customer Records', 'Appointment Management', 'Service Management', 'Organized Business Records'] },
-  { id: 2, title: 'Academic Advising & Student Monitoring System', type: 'web', tags: ['Web', 'React', 'Database', 'Academic', 'System Development'], tech: ['React', 'JavaScript', 'Database', 'HTML', 'CSS'], desc: 'A system concept designed to help educational institutions organize student advising, academic monitoring, and student records.', visual: 'academic', image: '/images/projects/academic.png', features: ['Student Management', 'Academic Monitoring', 'Data Organization', 'User Interface Design', 'Database Integration'] },
-  { id: 3, title: 'Campus News App', type: 'mobile', tags: ['Mobile', 'React Native', 'Academic'], tech: ['React Native', 'Expo', 'JavaScript', 'SQLite', 'Expo Router'], desc: 'A mobile application concept designed to provide students with convenient access to campus news, announcements, and updates.', visual: 'news', image: '/images/projects/campus-news.png', features: ['Mobile UI', 'Navigation', 'Local Database', 'News Content', 'Responsive Mobile Interface'] },
-  { id: 4, title: 'DisasterAid System', type: 'web', tags: ['Web', 'Database', 'Laravel', 'System Development'], tech: ['Laravel', 'PHP', 'MySQL', 'Docker', 'HTML', 'CSS', 'JavaScript'], desc: 'A disaster assistance system concept designed to organize disaster-related information, assistance requests, and community support activities.', visual: 'aid', image: '/images/projects/disasteraid.png', features: ['Information Management', 'Database Operations', 'System Architecture', 'Web Application Development', 'Docker-based Development Environment'] },
-  { id: 5, title: 'Mini LLM Development Experiment', type: 'ai', tags: ['Python', 'Academic', 'Learning Project'], tech: ['Python', 'PyTorch', 'Git', 'GitHub', 'Virtual Environment'], desc: 'A learning project focused on understanding the fundamentals of training and running a small language model using Python and machine learning libraries.', visual: 'llm', image: '/images/projects/mini-llm.png', features: ['Python Development', 'Virtual Environments', 'Machine Learning Experimentation', 'Model Training Concepts', 'Troubleshooting Dependencies', 'Working with Open-source Repositories'] },
+  { id: 1, title: 'Salon Management System', type: 'web', tags: ['Web', 'Database', 'Laravel', 'System Development'], tech: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'Laravel'], desc: 'A management system designed to help salons organize customers, appointments, services, payments, and business records.', visual: 'salon', image: null, features: ['CRUD Operations', 'Database Management', 'Customer Records', 'Appointment Management', 'Service Management', 'Organized Business Records'] },
+  { id: 2, title: 'Academic Advising & Student Monitoring System', type: 'web', tags: ['Web', 'React', 'Database', 'Academic', 'System Development'], tech: ['React', 'JavaScript', 'HTML', 'CSS'], desc: 'A system concept designed to help educational institutions organize student advising, academic monitoring, and student records.', visual: 'academic', image: null, features: ['Student Management', 'Academic Monitoring', 'Data Organization', 'User Interface Design', 'Database Integration'] },
+  { id: 3, title: 'Campus News App', type: 'mobile', tags: ['Mobile', 'React Native', 'Academic'], tech: ['React Native', 'Expo', 'JavaScript', 'SQLite', 'Expo Router'], desc: 'A mobile application concept designed to provide students with convenient access to campus news, announcements, and updates.', visual: 'news', image: null, features: ['Mobile UI', 'Navigation', 'Local Database', 'News Content', 'Responsive Mobile Interface'] },
+  { id: 4, title: 'DisasterAid System', type: 'web', tags: ['Web', 'Database', 'Laravel', 'System Development'], tech: ['Laravel', 'PHP', 'MySQL', 'Docker', 'HTML', 'CSS', 'JavaScript'], desc: 'A disaster assistance system concept designed to organize disaster-related information, assistance requests, and community support activities.', visual: 'aid', image: null, features: ['Information Management', 'Database Operations', 'System Architecture', 'Web Application Development', 'Docker-based Development Environment'] },
+  { id: 5, title: 'Mini LLM Development Experiment', type: 'ai', tags: ['Python', 'Academic', 'Learning Project'], tech: ['Python', 'PyTorch', 'Git', 'GitHub'], desc: 'A learning project focused on understanding the fundamentals of training and running a small language model using Python and machine learning libraries.', visual: 'llm', image: null, features: ['Python Development', 'Virtual Environments', 'Machine Learning Experimentation', 'Model Training Concepts', 'Troubleshooting Dependencies', 'Working with Open-source Repositories'] },
 ];
 
 export const filters = ['All', 'Web', 'Mobile', 'Database', 'Laravel', 'React', 'React Native', 'Academic', 'System Development'];
@@ -66,8 +70,6 @@ export const docSkills = ['Project Documentation', 'System Documentation', 'Inst
 export const toolsList = ['VS Code', 'Git', 'GitHub', 'Laravel', 'PHP', 'MySQL', 'SQLite', 'React', 'React Native', 'Expo', 'JavaScript', 'HTML', 'CSS', 'Docker', 'Laragon', 'Android Studio', 'Canva', 'Microsoft Office', 'Google Workspace', 'Windows', 'WSL', 'PowerShell', 'Node.js', 'Composer'];
 
 export const strengths = ['Problem Solving', 'Communication', 'Time Management', 'Organization', 'Attention to Detail', 'Teamwork', 'Independent Learning', 'Adaptability', 'Technical Research', 'Troubleshooting'];
-
-export const certificates = ['IT-related Certificates', 'Technical Training', 'Web Development Training', 'Digital Skills & Workshops'];
 
 export const whyHireMe = [
   { title: 'Reliable', description: 'Committed to completing assigned tasks responsibly.' },

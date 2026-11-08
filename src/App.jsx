@@ -4,7 +4,7 @@ import { Navbar, Footer } from '@/components/layout';
 import { CommandPalette } from '@/components/search';
 import {
   Hero, About, Skills, Services, Projects, Experience,
-  Capabilities, Tools, Strengths, Certificates, WhyHireMe,
+  Capabilities, Tools, Strengths, WhyHireMe,
   Resume, Contact
 } from '@/components/sections';
 
@@ -37,7 +37,6 @@ function AppContent() {
         <Tools />
         <Strengths />
         <WhyHireMe />
-        <Certificates />
         <Resume />
         <Contact />
       </main>

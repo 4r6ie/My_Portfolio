@@ -486,7 +486,7 @@ ul, ol { list-style: none; }
 .about-detail a { color: var(--accent); transition: color var(--transition-fast); }
 .about-detail a:hover { color: var(--accent-strong); }
 .about-stats {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
 }
 .about-stat {
   text-align: center; padding: 24px;
@@ -846,6 +846,12 @@ a.contact-value:hover { color: var(--accent); }
 .contact-form-row {
   display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 }
+.contact-status {
+  margin: 0; font: 400 13px/1.6 var(--font-sans);
+}
+.contact-status a { text-decoration: underline; }
+.contact-status--success { color: var(--success); }
+.contact-status--error { color: var(--danger); }
 
 /* ═══════════════════════════════════════════════════════════
    FOOTER
@@ -1003,7 +1009,7 @@ a.contact-value:hover { color: var(--accent); }
   .hero-buttons { flex-direction: column; width: 100%; }
   .hero-buttons .btn { width: 100%; }
   .hero-social { flex-direction: column; gap: 12px; margin-bottom: 40px; }
-  .about-stats { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .about-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .about-stat { padding: 16px 8px; }
   .about-stat-value { font-size: 24px; }
   .about-stat-label { font-size: 11px; }
@@ -1126,6 +1132,17 @@ a.contact-value:hover { color: var(--accent); }
   max-height: 30vh;
   overflow-y: auto;
 }
+.lightbox-cover {
+  width: 100%;
+  height: 260px;
+  display: grid;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.lightbox-actions {
+  margin-top: 16px;
+}
 
 .lightbox-title {
   font: 700 22px/1.2 var(--font-display);
@@ -1165,6 +1182,10 @@ a.contact-value:hover { color: var(--accent); }
   }
   .lightbox-image {
     max-height: 45vh;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+  .lightbox-cover {
+    height: 200px;
     border-radius: var(--radius-md) var(--radius-md) 0 0;
   }
   .lightbox-info {

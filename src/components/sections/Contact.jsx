@@ -3,22 +3,57 @@ import { Reveal } from '@/components/animations';
 import { SectionHead, Input, Textarea, Button, Icon } from '@/components/ui';
 import { profile } from '@/data';
 
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+const WEB3FORMS_ACCESS_KEY = 'ba1c459c-a7c6-4c17-b32f-46c8081de1a8';
+const EMPTY_FORM = { name: '', email: '', subject: '', message: '' };
+
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
-  const [status, setStatus] = useState(null);
+  const [formData, setFormData] = useState(EMPTY_FORM);
+  const [status, setStatus] = useState('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (status === 'sending') return;
+
     setStatus('sending');
-    setTimeout(() => {
-      setStatus('sent');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus(null), 3000);
-    }, 1500);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          replyto: formData.email.trim(),
+          subject: formData.subject.trim(),
+          message: formData.message.trim(),
+          from_name: 'Portfolio Contact Form',
+        }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'The message could not be sent.');
+      }
+
+      setStatus('success');
+      setFormData(EMPTY_FORM);
+      setTimeout(() => setStatus('idle'), 6000);
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage(error.message || 'Something went wrong while sending your message.');
+    }
   };
 
   return (
@@ -84,6 +119,15 @@ export default function Contact() {
 
           <Reveal className="contact-form-wrap">
             <form className="contact-form" onSubmit={handleSubmit}>
+              <input
+                type="checkbox"
+                name="botcheck"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{ display: 'none' }}
+              />
+
               <div className="contact-form-row">
                 <Input
                   label="Name"
@@ -125,11 +169,28 @@ export default function Contact() {
                 variant="primary"
                 size="lg"
                 loading={status === 'sending'}
-                icon={<Icon name={status === 'sent' ? 'check' : 'mail'} size={16} />}
+                icon={<Icon name={status === 'success' ? 'check' : 'mail'} size={16} />}
                 className="w-full"
               >
-                {status === 'sent' ? 'Message Sent!' : 'Send Message'}
+                {status === 'sending' && 'Sending...'}
+                {status === 'success' && 'Message Sent!'}
+                {status === 'error' && 'Try Again'}
+                {status === 'idle' && 'Send Message'}
               </Button>
+
+              <div aria-live="polite">
+                {status === 'success' && (
+                  <p className="contact-status contact-status--success">
+                    Message sent. Thanks for reaching out — I usually reply within 24 hours.
+                  </p>
+                )}
+                {status === 'error' && (
+                  <p className="contact-status contact-status--error" role="alert">
+                    {errorMessage} You can also email me directly at{' '}
+                    <a href={`mailto:${profile.email}`}>{profile.email}</a>.
+                  </p>
+                )}
+              </div>
             </form>
           </Reveal>
         </div>
