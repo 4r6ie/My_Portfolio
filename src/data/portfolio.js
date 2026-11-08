@@ -68,6 +68,50 @@ export const toolsList = ['VS Code', 'Git', 'GitHub', 'Laravel', 'PHP', 'MySQL',
 
 export const strengths = ['Problem Solving', 'Communication', 'Time Management', 'Organization', 'Attention to Detail', 'Teamwork', 'Independent Learning', 'Adaptability', 'Technical Research', 'Troubleshooting'];
 
+// Testimonials for social proof
+export const testimonials = [
+  {
+    id: 1,
+    clientName: 'Sarah M.',
+    clientRole: 'Small Business Owner',
+    company: 'Glow Salon',
+    rating: 5,
+    text: 'Efren transformed my salon's booking system. The custom management system he built saved me 10+ hours per week on administrative tasks. Professional, responsive, and truly understands business needs.',
+    avatar: '/images/profile.png',
+    date: 'March 2024',
+  },
+  {
+    id: 2,
+    clientName: 'Dr. Carlos R.',
+    clientRole: 'Academic Coordinator',
+    company: 'University of Bohol',
+    rating: 5,
+    text: 'Efren developed an academic tracking system for our students. His attention to detail and ability to understand educational requirements was exceptional. Our student satisfaction scores improved significantly.',
+    avatar: '/images/profile.png',
+    date: 'February 2024',
+  },
+  {
+    id: 3,
+    clientName: 'Maria L.',
+    clientRole: 'Project Manager',
+    company: 'Tech Solutions Inc.',
+    rating: 4.5,
+    text: 'Efren provided virtual assistance during our product launch. He handled data entry, customer communications, and coordination seamlessly. His reliability allowed me to focus on core business development.',
+    avatar: '/images/profile.png',
+    date: 'January 2024',
+  },
+  {
+    id: 4,
+    clientName: 'Engr. Joseph V.',
+    clientRole: 'IT Department Head',
+    company: 'Bohol Provincial Government',
+    rating: 5,
+    text: 'Efren's IT support and system development skills were invaluable. He delivered the DisasterAid System on time and within budget. His technical expertise combined with strong communication made the collaboration smooth.',
+    avatar: '/images/profile.png',
+    date: 'December 2023',
+  },
+];
+
 export const certificates = ['IT-related Certificates', 'Technical Training', 'Web Development Training', 'Digital Skills & Workshops'];
 
 export const whyHireMe = [

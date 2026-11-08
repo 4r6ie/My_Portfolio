@@ -15,12 +15,12 @@ const projectVisuals = {
 
 // Map visual keys to category display names
 const categoryLabels = {
-  "Web Apps": 'Web',
-  Educational: 'Academic',
+  Web Apps: 'Web',
+  Educational: 'Academic', 
   Media: 'News',
-  "Mobile Apps": 'Mobile',
-  "System Development": 'System',
-  "AI/ML": 'AI',
+  Mobile Apps: 'Mobile',
+  System Development: 'System',
+  AI/ML: 'AI',
 };
 
 export default function Projects() {
