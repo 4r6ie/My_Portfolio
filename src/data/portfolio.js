@@ -72,9 +72,9 @@ export const strengths = ['Problem Solving', 'Communication', 'Time Management',
 export const testimonials = [
   {
     id: 1,
-    clientName: 'Sarah M.',
-    clientRole: 'Small Business Owner',
-    company: 'Glow Salon',
+    clientName: 'Ana Mae B.',
+    clientRole: 'Salon owner',
+    company: 'Nams Salon',
     rating: 5,
     text: 'Efren transformed my salon's booking system. The custom management system he built saved me 10+ hours per week on administrative tasks. Professional, responsive, and truly understands business needs.',
     avatar: '/images/profile.png',
